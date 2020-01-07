@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding-top: 10px;
+  background-color: blanchedalmond;
+}
+
+.left-side{
+  padding-left: 20px;
+}
+
+form{
+  margin-bottom: 20px;
+}
+
+label{
+  display: block;
+}
+
+input{
+  margin: 3px 0;
+  border-radius: 3px;
+  border: 1px black solid;
+}
+
+.right-side{
+  margin-left: 50px;
+}
+
+#configurations{
+  display: block;
+  padding-top: 10px;
+}
