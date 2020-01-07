@@ -41,6 +41,12 @@
         <input type="text" name="configurationId"> <br>
         <input type="submit" name="submit"> 
       </form>
+      <h3>Elimina una configurazione</h3>
+      <form id="delete">
+        <label for="deleteId">ID</label>
+        <input type="text" name="deleteId"> <br>
+        <input type="submit" name="submit"> 
+      </form>
     </div>
   
     <div class="right-side">

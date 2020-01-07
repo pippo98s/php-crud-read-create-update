@@ -1,10 +1,10 @@
 $(document).ready(init);
 
-
 function init(){
   getAllConfigurations();
   $("#myForm").submit(postNewConfiguration);
   $("#update").submit(updateConfiguration);
+  $("#delete").submit(deleteConfiguration);
 };
 
 function getAllConfigurations(){
@@ -28,7 +28,9 @@ function postNewConfiguration(){
     method: "POST",
     data : me.serialize(),
     success: function (data) {
-      getAllConfigurations();
+      if (data) {
+        getAllConfigurations();
+      }
     },
     error: function (error) {
       console.log("error", error);
@@ -38,16 +40,16 @@ function postNewConfiguration(){
   return false;
 }
 
-
 function updateConfiguration() {
   var me = $(this);
-
   $.ajax({
     url: "updateConfiguration.php",
     method: "POST",
     data: me.serialize(),
     success: function (data) {
-      getAllConfigurations();
+      if (data) {
+        getAllConfigurations();
+      }
     },
     error: function (error) {
       console.log("error", error);
@@ -57,7 +59,24 @@ function updateConfiguration() {
   return false;
 }
 
-
+function deleteConfiguration() {
+  var me = $(this);
+  $.ajax({
+    url: "deleteConfiguration.php",
+    method: "POST",
+    data: me.serialize(),
+    success: function (data) {
+      if(data){
+        getAllConfigurations();
+      }
+    },
+    error: function (error) {
+      console.log("error", error);
+    }
+  });
+  me.find("input[type=text]").val("");
+  return false;
+}
 
 function printData(data) {
   var source = $("#entry-template").html();
